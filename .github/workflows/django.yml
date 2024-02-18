@@ -25,7 +25,10 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
+        ls
         python -m pip install --upgrade pip
+        pwd
+        ls requirements/
         pip install -r requirements/prod.txt
     - name: Run Tests
       run: |
