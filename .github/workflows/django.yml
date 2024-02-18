@@ -20,6 +20,9 @@ jobs:
       run: |
         pwd
         ls
+        ls backend
+        ls backend/web_back
+        ls backend/web_back/requirements
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
