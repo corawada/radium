@@ -15,7 +15,7 @@ jobs:
         python-version: ["3.10"] 
     defaults:
       run:
-        working-directory: backend/web_back
+        working-directory: backend/web_back/
 
     steps:
     - uses: actions/checkout@v3
