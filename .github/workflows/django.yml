@@ -19,13 +19,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: List Files
-      run: |
-        pwd
-        ls
-        ls backend
-        ls backend/web-back
-        ls backend/web-back/requirements
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
