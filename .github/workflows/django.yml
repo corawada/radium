@@ -33,6 +33,6 @@ jobs:
         # python manage.py test --settings config.test_settings
         python manage.py test
       env: 
-        DJANGO_SETTINGS_MODULE=config.test_settings
-        SECRET_KEY='XXXXX'
-        DEBUG=true
+        DJANGO_SETTINGS_MODULE: config.test_settings
+        SECRET_KEY: 'XXXXX'
+        DEBUG: true
