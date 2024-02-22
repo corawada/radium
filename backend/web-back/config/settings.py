@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     # Local
-    # 'todo.apps.TodoConfig',
+    'history.apps.HistoryConfig',
 ]
 
 MIDDLEWARE = [
