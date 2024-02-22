@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
+    'rest_framework',
+    'corsheaders',
+
+    # Local
+    'history.apps.HistoryConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +87,7 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': 'postgres',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
@@ -116,13 +123,34 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+# 開発環境下で静的ファイルを参照する先
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# 本番環境で静的ファイルを参照する先
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# メディアファイルpath
+MEDIA_URL = '/media/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost',
+)
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8080']
